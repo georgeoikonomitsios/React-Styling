@@ -18,10 +18,10 @@ const customStyle = {
 
 const getH1 = (time) => {
   var greeting = "Hello";
-  if (time >= 0 || time < 12) {
+  if (time >= 0 && time < 12) {
     greeting = "Good Morning";
     customStyle.color = "red";
-  } else if (time >= 12 || time < 18) {
+  } else if (time >= 12 && time < 18) {
     greeting = "Good Afternoon";
     customStyle.color = "green";
   } else {
