@@ -9,32 +9,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const d = new Date();
-const time = d.getHours();
+const date = new Date();
+const currentTime = date.getHours();
 
 const customStyle = {
-  color: "red"
+  color: ""
 };
 
-const getH1 = (time) => {
-  var greeting = "Hello";
-  if (time >= 0 && time < 12) {
-    greeting = "Good Morning";
-    customStyle.color = "red";
-  } else if (time >= 12 && time < 18) {
-    greeting = "Good Afternoon";
-    customStyle.color = "green";
-  } else {
-    greeting = "Good Evening";
-    customStyle.color = "blue";
-  }
-  return greeting;
-};
+// We dont need a function, we can make the calculation here
+let greeting;
+if (currentTime < 12) {
+  greeting = "Good Morning";
+  customStyle.color = "red";
+} else if (currentTime < 18) {
+  greeting = "Good Afternoon";
+  customStyle.color = "green";
+} else {
+  greeting = "Good Evening";
+  customStyle.color = "blue";
+}
 
 ReactDOM.render(
   <div>
     <h1 className="heading" style={customStyle}>
-      {getH1(time)}
+      {greeting}
     </h1>
   </div>,
   document.getElementById("root")
